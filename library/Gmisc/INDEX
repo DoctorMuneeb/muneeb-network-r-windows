@@ -1,0 +1,70 @@
+Gmisc-package           Collection of functions for plotting relations,
+                        generating tables, and more.
+Transition-class        A reference class for generating transition
+                        plots
+align                   Align boxes
+bezierArrowGradient     A bezier arrow with gradient
+bezierArrowSmpl         A simple bezier arrow
+boxGrob                 Create a box with text
+boxPropGrob             Create a box with a color split
+calculateLinesAndArrow
+                        Gets offsetted lines
+connectGrob             Connect boxes with an arrow
+convertShowMissing      A function for converting a show_missing
+                        variable.
+coords                  Get the box coordinates
+copyAllNewAttributes    A simple thing to keep the attributes
+descGetMissing          Get statistics for missing data
+describeFactors         Describes factor variables
+describeMean            Describe the mean
+describeMedian          A function that returns a description median
+                        that contains the interquartile range or the
+                        full range
+describeProp            A function that returns a description
+                        proportion that contains the number and the
+                        percentage
+distance                Get the distance between grid objects
+docx_document           Formatter wrapper for 'html_document',
+                        facilitates easier porting to docx
+fastDoCall              An alternative to the internal 'do.call'
+figCapNo                Adds a figure caption number
+figCapNoLast            Gets the last figure caption number
+figCapNoNext            Gets the next figure caption number
+getBezierAdj4Arrw       Gets the bezier points adjusted for an arrow
+getDescriptionStatsBy   Creating of description statistics
+getPvalWilcox           P-value extractors for 'getDescriptionStatsBy'
+getSvdMostInfluential   Gets the maximum contributor variables from
+                        svd()
+gnrlBezierPoints        Generates a generalized Bézier line
+has                     An R alternative to the lodash 'has' in
+                        JavaScript
+insertRowAndKeepAttr    Insert a row into a matrix
+mergeDesc               Prepares a matrix for 'htmlTable' from a list
+mergeLists              Merging of multiple lists
+moveBox                 Move a boxGrob
+pathJoin                A path join function
+prAddDescStats          Add a p-value column to the results
+prAddDescUnitColumn     Add a units column to the results
+prAddEmptyVals          Convert the by-list into a matrix compatible
+                        format
+prAddTotalDescColumn    Add a total column to the results
+prBuildSubLabel         Add a sub-label to 'boxPropGrob'
+prConvert2Coords        Converts an object to coordinates
+prCreateBoxCoordinates
+                        Creates coordinates for box
+prFactorDescs           Helper to [getDescriptionStatsBy()]
+prFixDescRownames       Fix rownames for descriptive results
+prGetDescHeader         Retrieve basic description stats by header
+prNumericDescs          Helper to [getDescriptionStatsBy()]
+prPasteVec              Collapses a vector for throwing errors
+prPropDescs             Helper to [getDescriptionStatsBy()]
+print.Gmisc_list_of_boxes
+                        Output boxes
+retrieve                An R alternative to the lodash 'get' in
+                        JavaScript
+set_column_labels       Add [Hmisc::label()] to multiple columns
+set_column_units        Add [Hmisc::unit()] to multiple columns
+spread                  Spread boxes
+time2spanTxt            A dense time-span text
+transitionPlot          A transition plot
+yamlDump                Outputs an object

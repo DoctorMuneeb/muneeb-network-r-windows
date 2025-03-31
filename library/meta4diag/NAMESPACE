@@ -1,0 +1,55 @@
+export(meta4diag,
+	meta4diagGUI,
+	makePriors,
+	makeData,
+	runModel,
+	forest,
+	forest.meta4diag,
+	SROC,
+	SROC.meta4diag,
+	fitted.meta4diag,
+	crosshair,
+	crosshair.meta4diag,
+	plot.meta4diag,
+	summary.meta4diag,
+	print.meta4diag,
+	print.summary.meta4diag,
+	print.fitted.meta4diag,
+	makeObject,
+       AUC,
+       AUC.meta4diag,
+       funnel,
+       funnel.meta4diag)
+
+
+S3method(SROC,meta4diag)
+S3method(crosshair,meta4diag)
+S3method(forest,meta4diag)
+S3method(fitted,meta4diag)
+S3method(print,summary.meta4diag)
+S3method(print,fitted.meta4diag)
+S3method(print,meta4diag)
+S3method(plot,meta4diag)
+S3method(summary,meta4diag)
+S3method(AUC,meta4diag)
+S3method(funnel,meta4diag)
+
+importFrom("grDevices", "cairo_ps", "col2rgb", "contourLines",
+            "dev.off", "jpeg", "palette", "pdf", "png", "postscript",
+            "rgb", "setEPS")
+importFrom("graphics", "abline", "arrows", "axis", "contour", "layout",
+            "lines", "mtext", "par", "plot", "plot.new", "plot.window",
+            "points", "polygon", "strwidth", "symbols", "text")
+importFrom("stats", "as.formula", "dbeta", "dgamma", "dnorm", "fitted",
+            "lm", "pnorm", "qf", "qnorm", "quantile", "sd", "splinefun")
+importFrom("utils", "install.packages", "installed.packages",
+            "read.csv", "read.table", "tail")
+importFrom("stats", "integrate")
+importFrom("grDevices", "rainbow")
+
+import(shiny)
+import(shinyBS)
+import(sp)
+import(grid)
+import(methods)
+import(caTools)

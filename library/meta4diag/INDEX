@@ -1,0 +1,25 @@
+AUC                     A function that calculate the area under
+                        summary receiver operating chracteristic line.
+Catheter                The Catheter Segment Culture data.
+SROC                    A standard summary receiver operating
+                        chracteristic plot.
+Scheidler               Scheidler dataset.
+Telomerase              Telomerase dataset.
+crosshair               Crosshair Plot.
+fitted                  Get the estimated values of accuracies for each
+                        study.
+forest                  Forest plot.
+funnel                  Funnel plot.
+makeData                Make internally used data structure.
+makeObject              A function used to make a 'meta4diag' object.
+makePriors              Priors for internal use.
+meta4diag               Function to analyse diagnostic meta-analysis
+                        with Bayesian methods using INLA.
+meta4diag-package       Meta-Analysis for Diagnostic Test Studies
+meta4diagGUI            A graphic user interface for meta4diag.
+plot.meta4diag          Default meta4diag plotting.
+print                   print meta4diag object.
+runModel                Run the bivariate model.
+summary                 Provide summary information.
+table_cor               The example table prior for correlation.
+table_var               The example table prior for variance.

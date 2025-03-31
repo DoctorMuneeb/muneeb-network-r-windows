@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="generator" content="litedown 0.6">
+<title>Using RGL in pkgdown web sites</title>
+<style type="text/css">
+body {
+  font-family: sans-serif;
+  max-width: 800px;
+  margin: auto;
+  padding: 1em;
+  line-height: 1.5;
+}
+body, .abstract, code, .footnotes, footer, #refs, .caption { font-size: .9em; }
+li li { font-size: .95em; }
+ul:has(li > input[type="checkbox"]) { list-style: none; padding-left: 1em; }
+*, :before, :after { box-sizing: border-box; }
+a { color: steelblue; }
+pre, img { max-width: 100%; }
+pre { white-space: pre-wrap; word-break: break-word; }
+pre code { display: block; padding: 1em; overflow-x: auto; }
+code { font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace; }
+:not(pre, th) > code, code[class], div > .caption { background: #f8f8f8; }
+pre > code:is(:not([class]), .language-plain, .language-none, .plain), .box, .figure, .table { background: inherit; border: 1px solid #eee; }
+pre > code {
+  &.message { border-color: #9eeaf9; }
+  &.warning { background: #fff3cd; border-color: #fff3cd; }
+  &.error { background: #f8d7da; border-color: #f8d7da; }
+}
+.fenced-chunk { border-left: 1px solid #666; }
+.code-fence {
+  opacity: .4;
+  border: 1px dashed #666;
+  border-left: 2px solid;
+  &:hover { opacity: inherit; }
+}
+.box, .figure, .table, table { margin: 1em auto; }
+div > .caption { padding: 1px 1em; }
+.figure { p:has(img, svg), pre:has(svg) { text-align: center; } }
+.flex-col { display: flex; justify-content: space-between; }
+table {
+  &:only-child:not(.table > *) { margin: auto; }
+  th, td { padding: 5px; font-variant-numeric: tabular-nums; }
+  thead, tfoot, tr:nth-child(even) { background: whitesmoke; }
+  thead th { border-bottom: 1px solid #ddd; }
+  &:not(.datatable-table) {
+    border-top: 1px solid #666;
+    border-bottom: 1px solid #666;
+  }
+}
+blockquote {
+  color: #666;
+  margin: 0;
+  padding: 1px 1em;
+  border-left: .5em solid #eee;
+}
+hr, .footnotes::before { border: 1px dashed #ddd; }
+.frontmatter { text-align: center; }
+#TOC {
+  a { text-decoration: none; }
+  ul { list-style: none; padding-left: 1em; }
+  & > ul { padding: 0; }
+  ul ul { border-left: 1px solid lightsteelblue; }
+}
+.body h2 { border-bottom: 1px solid #666; }
+.body .appendix, .appendix ~ h2 { border-bottom-style: dashed; }
+.main-number::after { content: "."; }
+span[class^="ref-number-"] { font-weight: bold; }
+.ref-number-fig::after, .ref-number-tab::after { content: ":"; }
+.cross-ref-chp::before { content: "Chapter "; }
+.cross-ref-sec::before { content: "Section "; }
+.cross-ref-fig::before, .ref-number-fig::before { content: "Figure "; }
+.cross-ref-tab::before, .ref-number-tab::before { content: "Table "; }
+.cross-ref-eqn::before, .MathJax_ref:has(mjx-mtext > mjx-c + mjx-c)::before { content: "Equation "; }
+.abstract, #refs {
+  &::before { display: block; margin: 1em auto; font-weight: bold; }
+}
+.abstract::before { content: "Abstract"; text-align: center; }
+#refs::before { content: "Bibliography"; font-size: 1.5em; }
+.ref-paren-open::before { content: "("; }
+.ref-paren-close::after { content: ")"; }
+.ref-semicolon::after { content: "; "; }
+.ref-and::after { content: " and "; }
+.ref-et-al::after { content: " et al."; font-style: italic; }
+.footnote-ref a {
+  &::before { content: "["; }
+  &::after { content: "]"; }
+}
+section.footnotes {
+  margin-top: 2em;
+  &::before { content: ""; display: block; max-width: 20em; }
+}
+.fade {
+  background: repeating-linear-gradient(135deg, white, white 30px, #ddd 32px, #ddd 32px);
+  opacity: 0.6;
+}
+
+@media print {
+  body { max-width: 100%; }
+  tr, img { break-inside: avoid; }
+}
+@media only screen and (min-width: 992px) {
+  body:not(.pagesjs) pre:has(.line-numbers):not(:hover) { white-space: pre; }
+}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@xiee/utils@1.14.11/css/prism-xcode.min.css">
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js" defer></script>
+</head>
+<body>
+<div class="frontmatter">
+<div class="title"><h1>Using RGL in pkgdown web sites</h1></div>
+<div class="author"><h2>Duncan Murdoch</h2></div>
+</div>
+<div class="body">
+<div id="TOC">
+<ul>
+<li><a href="#sec:what-is-the-problem">What is the problem?</a></li>
+<li><a href="#sec:using-rgl-in-examples">Using `RGL in examples.</a></li>
+<li><a href="#sec:specifying-the-size-of-figures">Specifying the size of figures</a></li>
+</ul>
+</div>
+<h2 id="sec:what-is-the-problem">What is the problem?</h2>
+<p><a href="https://pkgdown.r-lib.org/">pkgdown</a> is an R package that
+makes it easy to build a web site for your package.  However, the previous version 1.6.1 on CRAN didn’t work so well for
+packages whose examples use RGL or other packages like <a href="http://rstudio.github.io/leaflet/">leaflet</a> that use
+<a href="http://www.htmlwidgets.org">htmlwidgets</a>.  This document
+described changes that support both of these.  The changes
+are now incorporated into <code>pkgdown</code> 2.0.0, so everything but
+user instructions has been removed.</p>
+<h2 id="sec:using-rgl-in-examples">Using `RGL in examples.</h2>
+<p>If you use RGL in example code, they should
+appear automatically in examples.
+The RGL output is set up to mimic what would happen in a
+<code>knitr</code> document that uses</p>
+<pre><code class="language-r">setupKnitr(autoprint = TRUE)
+</code></pre>
+<p>i.e. the output RGL commands will automatically be
+included in the display.  Low-level changes will be collected
+into a single display:</p>
+<pre><code class="language-r"># Show regression plane with z as dependent variable
+library(rgl)
+open3d()
+</code></pre>
+<pre><code>## null 
+##   47
+</code></pre>
+<pre><code class="language-r">x &lt;- rnorm(100)
+y &lt;- rnorm(100)
+z &lt;- 0.2*x - 0.3*y + rnorm(100, sd = 0.3)
+fit &lt;- lm(z ~ x + y)
+
+plot3d(x, y, z, type = &quot;s&quot;, col = &quot;red&quot;, size = 1)
+
+# No plot here, because of the planes3d() call below
+
+coefs &lt;- coef(fit)
+a &lt;- coefs[&quot;x&quot;]
+b &lt;- coefs[&quot;y&quot;]
+c &lt;- -1
+d &lt;- coefs[&quot;(Intercept)&quot;]
+planes3d(a, b, c, d, alpha = 0.5)
+</code></pre>
+<div class="figure">
+<!--html_preserve--><div id="rgl38184" style="width:504px;height:504px;" class="rglWebGL html-widget" role="img" aria-labelledby="rgl38184-aria"></div>
+<script type="application/json" data-for="rgl38184">{"x":{"material":{"color":"#000000","alpha":1,"lit":true,"ambient":"#000000","specular":"#FFFFFF","emission":"#000000","shininess":50,"smooth":true,"front":"filled","back":"filled","size":3,"lwd":1,"fog":true,"point_antialias":false,"line_antialias":false,"texture":null,"textype":"rgb","texmode":"modulate","texmipmap":false,"texminfilter":"linear","texmagfilter":"linear","texenvmap":false,"depth_mask":true,"depth_test":"less","isTransparent":false,"polygon_offset":[0,0],"margin":"","floating":false,"tag":"","blend":["src_alpha","one_minus_src_alpha"]},"rootSubscene":945,"objects":{"952":{"id":952,"type":"spheres","material":{},"vertices":"0","colors":"1","radii":[[0.06446149945259094]],"centers":"2","ignoreExtent":false,"fastTransparency":true,"flags":32771},"954":{"id":954,"type":"text","material":{"lit":false,"margin":0,"floating":true,"edge":[0,1,1]},"vertices":"3","colors":"4","texts":[["x"]],"cex":[[1]],"adj":[[0.5,0.5,0.5]],"centers":"5","family":[["sans"]],"font":[[1]],"ignoreExtent":true,"flags":33808},"955":{"id":955,"type":"text","material":{"lit":false,"margin":1,"floating":true,"edge":[1,1,1]},"vertices":"6","colors":"7","texts":[["y"]],"cex":[[1]],"adj":[[0.5,0.5,0.5]],"centers":"8","family":[["sans"]],"font":[[1]],"ignoreExtent":true,"flags":33808},"956":{"id":956,"type":"text","material":{"lit":false,"margin":2,"floating":true,"edge":[1,1,1]},"vertices":"9","colors":"10","texts":[["z"]],"cex":[[1]],"adj":[[0.5,0.5,0.5]],"centers":"11","family":[["sans"]],"font":[[1]],"ignoreExtent":true,"flags":33808},"957":{"id":957,"type":"planes","material":{"alpha":0.4980392158031464,"isTransparent":true},"vertices":"12","colors":"14","offsets":[[-0.01918801665306091]],"centers":"15","normals":"13","ignoreExtent":true,"flags":32803},"949":{"id":949,"type":"light","vertices":[[0,0,1]],"colors":[[1,1,1,1],[1,1,1,1],[1,1,1,1]],"viewpoint":true,"finite":false},"951":{"id":951,"type":"background","material":{"lit":false,"back":"lines"},"colors":"16","centers":"17","sphere":false,"fogtype":"none","fogscale":1,"flags":32768},"953":{"id":953,"type":"bboxdeco","material":{"front":"lines","back":"lines"},"vertices":"18","colors":"19","axes":{"mode":["pretty","pretty","pretty"],"step":[1,1,0.5],"nticks":[5,5,5],"marklen":[15,15,15],"expand":[1.029999971389771,1.029999971389771,1.029999971389771]},"draw_front":true,"flags":32769},"945":{"id":945,"type":"subscene","par3d":{"antialias":8,"FOV":30,"ignoreExtent":false,"listeners":945,"mouseMode":{"none":"none","left":"trackball","right":"zoom","middle":"fov","wheel":"pull"},"observer":[0,0,16.93904304504395],"modelMatrix":[[0.9537189602851868,0,0,-0.05365974456071854],[0,0.2924448251724243,1.287354350090027,-0.2150646597146988],[0,-0.8034855127334595,0.468558669090271,-16.76858901977539],[0,0,0,1]],"projMatrix":[[3.732050657272339,0,0,0],[0,3.732050657272339,0,0],[0,0,-3.863703966140747,-61.06329727172852],[0,0,-1,0]],"skipRedraw":false,"userMatrix":[[1,0,0,0],[0,0.3420201433256682,0.9396926207859085,0],[0,-0.9396926207859085,0.3420201433256682,0],[0,0,0,1]],"userProjection":[[1,0,0,0],[0,1,0,0],[0,0,1,0],[0,0,0,1]],"scale":[0.9537189602851868,0.8550514578819275,1.36997389793396],"viewport":{"x":0,"y":0,"width":1,"height":1},"zoom":1,"bbox":[-2.039014339447021,2.151541709899902,-2.063706874847412,2.610413074493408,-1.353683114051819,1.563608169555664],"windowRect":[0,0,256,256],"family":"sans","font":1,"cex":1,"useFreeType":true,"fontname":"NULL","maxClipPlanes":2147483647,"glVersion":"NA","activeSubscene":0},"embeddings":{"viewport":"replace","projection":"replace","model":"replace","mouse":"replace"},"objects":[951,953,952,954,955,956,957,949],"subscenes":[],"flags":34099}},"crosstalk":{"key":[],"group":[],"id":[],"options":[]},"width":504,"height":504,"buffer":{"accessors":[{"bufferView":0,"componentType":5126,"count":100,"type":"VEC3"},{"bufferView":1,"componentType":5121,"count":1,"type":"VEC4"},{"bufferView":2,"componentType":5126,"count":100,"type":"VEC3"},{"bufferView":3,"componentType":5126,"count":1,"type":"VEC3"},{"bufferView":4,"componentType":5121,"count":1,"type":"VEC4"},{"bufferView":5,"componentType":5126,"count":1,"type":"VEC3"},{"bufferView":6,"componentType":5126,"count":1,"type":"VEC3"},{"bufferView":7,"componentType":5121,"count":1,"type":"VEC4"},{"bufferView":8,"componentType":5126,"count":1,"type":"VEC3"},{"bufferView":9,"componentType":5126,"count":1,"type":"VEC3"},{"bufferView":10,"componentType":5121,"count":1,"type":"VEC4"},{"bufferView":11,"componentType":5126,"count":1,"type":"VEC3"},{"bufferView":12,"componentType":5126,"count":3,"type":"VEC3"},{"bufferView":13,"componentType":5126,"count":1,"type":"VEC3"},{"bufferView":14,"componentType":5126,"count":1,"type":"VEC4"},{"bufferView":15,"componentType":5126,"count":4,"type":"VEC3"},{"bufferView":16,"componentType":5121,"count":1,"type":"VEC4"},{"bufferView":17,"componentType":5121,"count":1,"type":"VEC3"},{"bufferView":18,"componentType":5126,"count":16,"type":"VEC3"},{"bufferView":19,"componentType":5121,"count":1,"type":"VEC4"}],"bufferViews":[{"buffer":0,"byteLength":1200,"byteOffset":0},{"buffer":0,"byteLength":4,"byteOffset":1200},{"buffer":0,"byteLength":1200,"byteOffset":1204},{"buffer":0,"byteLength":12,"byteOffset":2404},{"buffer":0,"byteLength":4,"byteOffset":2416},{"buffer":0,"byteLength":12,"byteOffset":2420},{"buffer":0,"byteLength":12,"byteOffset":2432},{"buffer":0,"byteLength":4,"byteOffset":2444},{"buffer":0,"byteLength":12,"byteOffset":2448},{"buffer":0,"byteLength":12,"byteOffset":2460},{"buffer":0,"byteLength":4,"byteOffset":2472},{"buffer":0,"byteLength":12,"byteOffset":2476},{"buffer":0,"byteLength":36,"byteOffset":2488},{"buffer":0,"byteLength":12,"byteOffset":2524},{"buffer":0,"byteLength":16,"byteOffset":2536},{"buffer":0,"byteLength":48,"byteOffset":2552},{"buffer":0,"byteLength":4,"byteOffset":2600},{"buffer":0,"byteLength":3,"byteOffset":2604},{"buffer":0,"byteLength":192,"byteOffset":2608},{"buffer":0,"byteLength":4,"byteOffset":2800}],"buffers":[{"byteLength":2804,"bytes":"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"}]},"context":{"shiny":false,"rmarkdown":null},"vertexShader":"#line 2 1\n// File 1 is the vertex shader\n#ifdef GL_ES\n#ifdef GL_FRAGMENT_PRECISION_HIGH\nprecision highp float;\n#else\nprecision mediump float;\n#endif\n#endif\n\nattribute vec3 aPos;\nattribute vec4 aCol;\nuniform mat4 mvMatrix;\nuniform mat4 prMatrix;\nvarying vec4 vCol;\nvarying vec4 vPosition;\n\n#ifdef NEEDS_VNORMAL\nattribute vec3 aNorm;\nuniform mat4 normMatrix;\nvarying vec4 vNormal;\n#endif\n\n#if defined(HAS_TEXTURE) || defined (IS_TEXT)\nattribute vec2 aTexcoord;\nvarying vec2 vTexcoord;\n#endif\n\n#ifdef FIXED_SIZE\nuniform vec3 textScale;\n#endif\n\n#ifdef FIXED_QUADS\nattribute vec3 aOfs;\n#endif\n\n#ifdef IS_TWOSIDED\n#ifdef HAS_NORMALS\nvarying float normz;\nuniform mat4 invPrMatrix;\n#else\nattribute vec3 aPos1;\nattribute vec3 aPos2;\nvarying float normz;\n#endif\n#endif // IS_TWOSIDED\n\n#ifdef FAT_LINES\nattribute vec3 aNext;\nattribute vec2 aPoint;\nvarying vec2 vPoint;\nvarying float vLength;\nuniform float uAspect;\nuniform float uLwd;\n#endif\n\n#ifdef USE_ENVMAP\nvarying vec3 vReflection;\n#endif\n\nvoid main(void) {\n  \n#ifndef IS_BRUSH\n#if defined(NCLIPPLANES) || !defined(FIXED_QUADS) || defined(HAS_FOG) || defined(USE_ENVMAP)\n  vPosition = mvMatrix * vec4(aPos, 1.);\n#endif\n  \n#ifndef FIXED_QUADS\n  gl_Position = prMatrix * vPosition;\n#endif\n#endif // !IS_BRUSH\n  \n#ifdef IS_POINTS\n  gl_PointSize = POINTSIZE;\n#endif\n  \n  vCol = aCol;\n  \n// USE_ENVMAP implies NEEDS_VNORMAL\n\n#ifdef NEEDS_VNORMAL\n  vNormal = normMatrix * vec4(-aNorm, dot(aNorm, aPos));\n#endif\n\n#ifdef USE_ENVMAP\n  vReflection = normalize(reflect(vPosition.xyz/vPosition.w, \n                        normalize(vNormal.xyz/vNormal.w)));\n#endif\n  \n#ifdef IS_TWOSIDED\n#ifdef HAS_NORMALS\n  /* normz should be calculated *after* projection */\n  normz = (invPrMatrix*vNormal).z;\n#else\n  vec4 pos1 = prMatrix*(mvMatrix*vec4(aPos1, 1.));\n  pos1 = pos1/pos1.w - gl_Position/gl_Position.w;\n  vec4 pos2 = prMatrix*(mvMatrix*vec4(aPos2, 1.));\n  pos2 = pos2/pos2.w - gl_Position/gl_Position.w;\n  normz = pos1.x*pos2.y - pos1.y*pos2.x;\n#endif\n#endif // IS_TWOSIDED\n  \n#ifdef NEEDS_VNORMAL\n  vNormal = vec4(normalize(vNormal.xyz), 1);\n#endif\n  \n#if defined(HAS_TEXTURE) || defined(IS_TEXT)\n  vTexcoord = aTexcoord;\n#endif\n  \n#if defined(FIXED_SIZE) && !defined(ROTATING)\n  vec4 pos = prMatrix * mvMatrix * vec4(aPos, 1.);\n  pos = pos/pos.w;\n  gl_Position = pos + vec4(aOfs*textScale, 0.);\n#endif\n  \n#if defined(IS_SPRITES) && !defined(FIXED_SIZE)\n  vec4 pos = mvMatrix * vec4(aPos, 1.);\n  pos = pos/pos.w + vec4(aOfs,  0.);\n  gl_Position = prMatrix*pos;\n#endif\n  \n#ifdef FAT_LINES\n  /* This code was inspired by Matt Deslauriers' code in \n   https://mattdesl.svbtle.com/drawing-lines-is-hard */\n  vec2 aspectVec = vec2(uAspect, 1.0);\n  mat4 projViewModel = prMatrix * mvMatrix;\n  vec4 currentProjected = projViewModel * vec4(aPos, 1.0);\n  currentProjected = currentProjected/currentProjected.w;\n  vec4 nextProjected = projViewModel * vec4(aNext, 1.0);\n  vec2 currentScreen = currentProjected.xy * aspectVec;\n  vec2 nextScreen = (nextProjected.xy / nextProjected.w) * aspectVec;\n  float len = uLwd;\n  vec2 dir = vec2(1.0, 0.0);\n  vPoint = aPoint;\n  vLength = length(nextScreen - currentScreen)/2.0;\n  vLength = vLength/(vLength + len);\n  if (vLength > 0.0) {\n    dir = normalize(nextScreen - currentScreen);\n  }\n  vec2 normal = vec2(-dir.y, dir.x);\n  dir.x /= uAspect;\n  normal.x /= uAspect;\n  vec4 offset = vec4(len*(normal*aPoint.x*aPoint.y - dir), 0.0, 0.0);\n  gl_Position = currentProjected + offset;\n#endif\n  \n#ifdef IS_BRUSH\n  gl_Position = vec4(aPos, 1.);\n#endif\n}","fragmentShader":"#line 2 2\n// File 2 is the fragment shader\n#ifdef GL_ES\n#ifdef GL_FRAGMENT_PRECISION_HIGH\nprecision highp float;\n#else\nprecision mediump float;\n#endif\n#endif\nvarying vec4 vCol; // carries alpha\nvarying vec4 vPosition;\n#if defined(HAS_TEXTURE) || defined (IS_TEXT)\nvarying vec2 vTexcoord;\nuniform sampler2D uSampler;\n#endif\n\n#ifdef HAS_FOG\nuniform int uFogMode;\nuniform vec3 uFogColor;\nuniform vec4 uFogParms;\n#endif\n\n#if defined(IS_LIT) && !defined(FIXED_QUADS)\nvarying vec4 vNormal;\n#endif\n\n#if NCLIPPLANES > 0\nuniform vec4 vClipplane[NCLIPPLANES];\n#endif\n\n#if NLIGHTS > 0\nuniform mat4 mvMatrix;\n#endif\n\n#ifdef IS_LIT\nuniform vec3 emission;\nuniform float shininess;\n#if NLIGHTS > 0\nuniform vec3 ambient[NLIGHTS];\nuniform vec3 specular[NLIGHTS]; // light*material\nuniform vec3 diffuse[NLIGHTS];\nuniform vec3 lightDir[NLIGHTS];\nuniform bool viewpoint[NLIGHTS];\nuniform bool finite[NLIGHTS];\n#endif\n#endif // IS_LIT\n\n#ifdef IS_TWOSIDED\nuniform bool front;\nvarying float normz;\n#endif\n\n#ifdef FAT_LINES\nvarying vec2 vPoint;\nvarying float vLength;\n#endif\n\n#ifdef USE_ENVMAP\nvarying vec3 vReflection;\n#endif\n\nvoid main(void) {\n  vec4 fragColor;\n#ifdef FAT_LINES\n  vec2 point = vPoint;\n  bool neg = point.y < 0.0;\n  point.y = neg ? (point.y + vLength)/(1.0 - vLength) :\n                 -(point.y - vLength)/(1.0 - vLength);\n#if defined(IS_TRANSPARENT) && defined(IS_LINESTRIP)\n  if (neg && length(point) <= 1.0) discard;\n#endif\n  point.y = min(point.y, 0.0);\n  if (length(point) > 1.0) discard;\n#endif // FAT_LINES\n  \n#ifdef ROUND_POINTS\n  vec2 coord = gl_PointCoord - vec2(0.5);\n  if (length(coord) > 0.5) discard;\n#endif\n  \n#if NCLIPPLANES > 0\n  for (int i = 0; i < NCLIPPLANES; i++)\n    if (dot(vPosition, vClipplane[i]) < 0.0) discard;\n#endif\n    \n#ifdef FIXED_QUADS\n    vec3 n = vec3(0., 0., 1.);\n#elif defined(IS_LIT)\n    vec3 n = normalize(vNormal.xyz);\n#endif\n    \n#ifdef IS_TWOSIDED\n    if ((normz <= 0.) != front) discard;\n#endif\n\n#ifdef IS_LIT\n    vec3 eye = normalize(-vPosition.xyz/vPosition.w);\n    vec3 lightdir;\n    vec4 colDiff;\n    vec3 halfVec;\n    vec4 lighteffect = vec4(emission, 0.);\n    vec3 col;\n    float nDotL;\n#ifdef FIXED_QUADS\n    n = -faceforward(n, n, eye);\n#endif\n    \n#if NLIGHTS > 0\n    // Simulate two-sided lighting\n    if (n.z < 0.0)\n      n = -n;\n    for (int i=0;i<NLIGHTS;i++) {\n      colDiff = vec4(vCol.rgb * diffuse[i], vCol.a);\n      lightdir = lightDir[i];\n      if (!viewpoint[i]) {\n        if (finite[i]) {\n          lightdir = (mvMatrix * vec4(lightdir, 1.)).xyz;\n        } else {\n          lightdir = (mvMatrix * vec4(lightdir, 0.)).xyz;\n        }\n      }\n      if (!finite[i]) {\n        halfVec = normalize(lightdir + eye);\n      } else {\n        lightdir = normalize(lightdir - vPosition.xyz/vPosition.w);\n        halfVec = normalize(lightdir + eye);\n      }\n      col = ambient[i];\n      nDotL = dot(n, lightdir);\n      col = col + max(nDotL, 0.) * colDiff.rgb;\n      col = col + pow(max(dot(halfVec, n), 0.), shininess) * specular[i];\n      lighteffect = lighteffect + vec4(col, colDiff.a);\n    }\n#endif\n    \n#else // not IS_LIT\n    vec4 colDiff = vCol;\n    vec4 lighteffect = colDiff;\n#endif\n    \n#ifdef IS_TEXT\n    vec4 textureColor = lighteffect*texture2D(uSampler, vTexcoord);\n#endif\n    \n#ifdef HAS_TEXTURE\n\n// These calculations use the definitions from \n// https://docs.gl/gl3/glTexEnv\n\n#ifdef USE_ENVMAP\n    float m = 2.0 * sqrt(dot(vReflection, vReflection) + 2.0*vReflection.z + 1.0);\n    vec4 textureColor = texture2D(uSampler, vReflection.xy / m + vec2(0.5, 0.5));\n#else\n    vec4 textureColor = texture2D(uSampler, vTexcoord);\n#endif\n\n#ifdef TEXTURE_rgb\n\n#if defined(TEXMODE_replace) || defined(TEXMODE_decal)\n    textureColor = vec4(textureColor.rgb, lighteffect.a);\n#endif \n\n#ifdef TEXMODE_modulate\n    textureColor = lighteffect*vec4(textureColor.rgb, 1.);\n#endif\n\n#ifdef TEXMODE_blend\n    textureColor = vec4((1. - textureColor.rgb) * lighteffect.rgb, lighteffect.a);\n#endif\n\n#ifdef TEXMODE_add\n    textureColor = vec4(lighteffect.rgb + textureColor.rgb, lighteffect.a);\n#endif\n\n#endif //TEXTURE_rgb\n        \n#ifdef TEXTURE_rgba\n\n#ifdef TEXMODE_replace\n// already done\n#endif \n\n#ifdef TEXMODE_modulate\n    textureColor = lighteffect*textureColor;\n#endif\n\n#ifdef TEXMODE_decal\n    textureColor = vec4((1. - textureColor.a)*lighteffect.rgb) +\n                     textureColor.a*textureColor.rgb, \n                     lighteffect.a);\n#endif\n\n#ifdef TEXMODE_blend\n    textureColor = vec4((1. - textureColor.rgb) * lighteffect.rgb,\n                    lighteffect.a*textureColor.a);\n#endif\n\n#ifdef TEXMODE_add\n    textureColor = vec4(lighteffect.rgb + textureColor.rgb,\n                    lighteffect.a*textureColor.a);\n#endif\n    \n#endif //TEXTURE_rgba\n    \n#ifdef TEXTURE_alpha\n    float luminance = dot(vec3(1.,1.,1.),textureColor.rgb)/3.;\n\n#if defined(TEXMODE_replace) || defined(TEXMODE_decal)\n    textureColor = vec4(lighteffect.rgb, luminance);\n#endif \n\n#if defined(TEXMODE_modulate) || defined(TEXMODE_blend) || defined(TEXMODE_add)\n    textureColor = vec4(lighteffect.rgb, lighteffect.a*luminance);\n#endif\n \n#endif // TEXTURE_alpha\n    \n// The TEXTURE_luminance values are not from that reference    \n#ifdef TEXTURE_luminance\n    float luminance = dot(vec3(1.,1.,1.),textureColor.rgb)/3.;\n\n#if defined(TEXMODE_replace) || defined(TEXMODE_decal)\n    textureColor = vec4(luminance, luminance, luminance, lighteffect.a);\n#endif \n\n#ifdef TEXMODE_modulate\n    textureColor = vec4(luminance*lighteffect.rgb, lighteffect.a);\n#endif\n\n#ifdef TEXMODE_blend\n    textureColor = vec4((1. - luminance)*lighteffect.rgb,\n                        lighteffect.a);\n#endif\n\n#ifdef TEXMODE_add\n    textureColor = vec4(luminance + lighteffect.rgb, lighteffect.a);\n#endif\n\n#endif // TEXTURE_luminance\n \n    \n#ifdef TEXTURE_luminance_alpha\n    float luminance = dot(vec3(1.,1.,1.),textureColor.rgb)/3.;\n\n#if defined(TEXMODE_replace) || defined(TEXMODE_decal)\n    textureColor = vec4(luminance, luminance, luminance, textureColor.a);\n#endif \n\n#ifdef TEXMODE_modulate\n    textureColor = vec4(luminance*lighteffect.rgb, \n                        textureColor.a*lighteffect.a);\n#endif\n\n#ifdef TEXMODE_blend\n    textureColor = vec4((1. - luminance)*lighteffect.rgb,\n                        textureColor.a*lighteffect.a);\n#endif\n\n#ifdef TEXMODE_add\n    textureColor = vec4(luminance + lighteffect.rgb, \n                        textureColor.a*lighteffect.a);\n\n#endif\n\n#endif // TEXTURE_luminance_alpha\n    \n    fragColor = textureColor;\n\n#elif defined(IS_TEXT)\n    if (textureColor.a < 0.1)\n      discard;\n    else\n      fragColor = textureColor;\n#else\n    fragColor = lighteffect;\n#endif // HAS_TEXTURE\n    \n#ifdef HAS_FOG\n    // uFogParms elements: x = near, y = far, z = fogscale, w = (1-sin(FOV/2))/(1+sin(FOV/2))\n    // In Exp and Exp2: use density = density/far\n    // fogF will be the proportion of fog\n    // Initialize it to the linear value\n    float fogF;\n    if (uFogMode > 0) {\n      fogF = (uFogParms.y - vPosition.z/vPosition.w)/(uFogParms.y - uFogParms.x);\n      if (uFogMode > 1)\n        fogF = mix(uFogParms.w, 1.0, fogF);\n      fogF = fogF*uFogParms.z;\n      if (uFogMode == 2)\n        fogF = 1.0 - exp(-fogF);\n      // Docs are wrong: use (density*c)^2, not density*c^2\n      // https://gitlab.freedesktop.org/mesa/mesa/-/blob/master/src/mesa/swrast/s_fog.c#L58\n      else if (uFogMode == 3)\n        fogF = 1.0 - exp(-fogF*fogF);\n      fogF = clamp(fogF, 0.0, 1.0);\n      gl_FragColor = vec4(mix(fragColor.rgb, uFogColor, fogF), fragColor.a);\n    } else gl_FragColor = fragColor;\n#else\n    gl_FragColor = fragColor;\n#endif // HAS_FOG\n    \n}","players":[],"webGLoptions":{"preserveDrawingBuffer":true},"fastTransparency":true},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
+<p class="caption">plot of chunk unnamed-chunk-2</p>
+</div>
+<h2 id="sec:specifying-the-size-of-figures">Specifying the size of figures</h2>
+<p>By default, pkgdown generates standard plots which are wider
+than they are high (according to the golden ratio).  Often
+RGL plots look better with equal width and height, since
+the contents may be rotated by the user.</p>
+<p>To specify the size of plots in pkgdown, you use the <code>figures</code>
+entry in <code>_pkgdown.yml</code>.  The defaults are similar to</p>
+<pre><code>figures:
+  dev: ragg::agg_png
+  dpi: 96
+  dev.args: []
+  fig.ext: png
+  fig.width: 7
+  fig.height: ~
+  fig.retina: 2
+  fig.asp: 1.618
+  bg: NA
+  other.parameters: []
+</code></pre>
+<p>By default RGL uses these parameters as well, but allows you
+to override any of <code>fig.width</code>, <code>fig.height</code> and <code>fig.asp</code> by
+specifying an <code>rgl</code> entry in <code>other.parameters</code>.  For example:</p>
+<pre><code>figures:
+  fig.width: 5
+  other.parameters:
+    rgl:
+      fig.asp: 1
+</code></pre>
+<p>This will make all plots have a width of 5 inches
+and will make RGL plots square.</p>
+</div>
+</body>
+</html>

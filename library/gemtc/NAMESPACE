@@ -1,0 +1,65 @@
+useDynLib(gemtc, .registration = TRUE)
+
+import(graphics)
+import(grDevices)
+import(stats)
+import(utils)
+
+import(grid)
+import(coda)
+importFrom(igraph, E, V, "V<-", edge, edges, vertex, ends, path, set.edge.attribute, are.connected, get.shortest.paths, graph.empty, simplify, clusters, induced.subgraph, get.edges, degree, get.edge.attribute, shortest.paths, as.undirected, graph.edgelist, vertices)
+importFrom(plyr, aaply, laply)
+
+S3method(print, mtc.network)
+S3method(summary, mtc.network)
+S3method(plot, mtc.network)
+
+S3method(print, mtc.model)
+S3method(summary, mtc.model)
+S3method(plot, mtc.model)
+
+S3method(print, mtc.result)
+S3method(summary, mtc.result)
+S3method(plot, mtc.result)
+S3method(as.mcmc.list, mtc.result)
+S3method(forest, mtc.result)
+
+S3method(print, summary.mtc.result)
+
+S3method(print, mtc.anohe)
+S3method(plot, mtc.anohe)
+S3method(summary, mtc.anohe)
+
+S3method(print, mtc.anohe.summary)
+S3method(plot, mtc.anohe.summary)
+
+S3method(print, mtc.nodesplit)
+S3method(plot, mtc.nodesplit)
+S3method(summary, mtc.nodesplit)
+
+S3method(print, mtc.nodesplit.summary)
+S3method(plot, mtc.nodesplit.summary)
+
+S3method(print, mtc.rank.probability)
+S3method(plot, mtc.rank.probability)
+
+S3method(as.character, mtc.hy.prior)
+
+S3method(as.data.frame, mtc.relative.effect.table)
+S3method(print, mtc.relative.effect.table)
+S3method(forest, mtc.relative.effect.table)
+
+S3method(plot, mtc.deviance)
+
+export(
+	mtc.network, mtc.data.studyrow,
+	mtc.model, mtc.hy.prior, mtc.hy.empirical.lor,
+	mtc.run,
+	mtc.deviance, mtc.devplot, mtc.levplot,
+	relative.effect, relative.effect.table,
+	rank.probability, sucra, rank.quantiles,
+	blobbogram, forest,
+	plotCovariateEffect,
+	mtc.anohe,
+	mtc.nodesplit, mtc.nodesplit.comparisons,
+	ll.call)

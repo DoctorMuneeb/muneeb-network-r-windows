@@ -1,0 +1,101 @@
+#################
+# EXPORTED
+#################
+#
+export(
+  mixmeta, mixmeta.fit,
+  mixmeta.fixed, mixmeta.ml, mixmeta.reml, mixmeta.mm, mixmeta.vc,
+  mixmetaSim,
+  mixmeta.control,
+  inputna,
+  inputcov,
+  summary.mixmeta,
+  print.mixmeta, print.summary.mixmeta,
+  predict.mixmeta,
+  blup, blup.mixmeta,
+  simulate.mixmeta,
+  qtest, qtest.mixmeta, print.qtest.mixmeta,
+  logLik.mixmeta,
+  coef.mixmeta, vcov.mixmeta,
+  terms.mixmeta,
+  model.frame.mixmeta, model.matrix.mixmeta,
+  na.omit.data.frame.mixmeta, na.exclude.data.frame.mixmeta,
+  bdiagMat, vechMat, xpndMat
+)
+#
+#################
+# NOT EXPORTED BUT DOCUMENTED
+#################
+#
+# ml.newton, reml.newton
+# ml.igls, reml.rigls, igls.iter, rigls.iter
+# ml.loglik.fn, ml.loglik.gr, reml.loglik.fn, reml.loglik.gr
+#
+#################
+# DOCUMENTED PAGES
+#################
+#
+# mixmetaObjects, mixmetaFormula, mixmetaCovStruct
+#
+#################
+# NOT EXPORTED METHODS
+#################
+#
+# formula, extractAIC.mixmeta, nobs.mixmeta, drop1.mixmeta, add1.mixmeta
+#
+#################
+# NOT USED
+#################
+#
+# mlfull.fn, remlfull.fn
+#
+#################
+# INTERNAL
+#################
+#
+# .onAttach
+# checkPD
+# dropList
+# fbtr
+# getBSCov, getContrXlev, getFixTerms, getFullFormula, getGroups, getInitPsi,
+# getList, getNpar, getPar, getPsifix, getQlist, getRandom, getS, getSigmalist,
+# getSlist, getZ, getZlist, getZPZlist
+# glsfit
+# gradchol.ml, gradchol.reml
+# par2Psi, Psi2par
+# rbindlist, sumList
+#
+#################
+# IMPORTED
+#################
+#
+import(stats, graphics, grDevices)
+importFrom(utils, packageDescription)
+importFrom(utils, modifyList)
+#
+#################
+# METHODS
+#################
+#
+S3method(blup, mixmeta)
+S3method(coef, mixmeta)
+S3method(logLik, mixmeta)
+S3method(terms, mixmeta)
+S3method(formula, mixmeta)
+S3method(model.frame, mixmeta)
+S3method(model.matrix, mixmeta)
+S3method(predict, mixmeta)
+S3method(simulate, mixmeta)
+S3method(print, mixmeta)
+S3method(qtest, mixmeta)
+S3method(summary, mixmeta)
+S3method(vcov, mixmeta)
+S3method(extractAIC, mixmeta)
+S3method(nobs, mixmeta)
+S3method(drop1, mixmeta)
+S3method(add1, mixmeta)
+#
+S3method(print, summary.mixmeta)
+S3method(print, qtest.mixmeta)
+S3method(na.omit, data.frame.mixmeta)
+S3method(na.exclude, data.frame.mixmeta)

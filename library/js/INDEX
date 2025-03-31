@@ -1,0 +1,7 @@
+coffee_compile          Coffee Script
+esprima                 JavaScrip Syntax Tree
+js_eval                 Evaluate JavaScript
+js_typeof               Get the type of a JavaScript object
+js_validate_script      Validate JavaScript
+jshint                  Static analysis tool for JavaScript
+uglify                  Compress and Reformat JavaScript Code

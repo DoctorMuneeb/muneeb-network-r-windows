@@ -1,0 +1,40 @@
+AUC                     Area under the curve (AUC)
+CIrho                   Confidence intervals for Spearman's rho.
+ROCellipse              Confidence Regions on ROC space
+SummaryPts              Use the Zwindermann & Bossuyt (2008) MCMC
+                        procedure to generate summary points (positive
+                        and negative likelihood ratio, diagnostic odds
+                        ratio) for the Reitsma et al. (2005) bivariate
+                        model
+cochran.Q               Cochran's Q statistic
+crosshair               Crosshair plot
+forest                  Forest plot for univariate measures
+mada-data               Diagnostic accuracy data
+mada-package            Meta-Analysis of diagnostic accuracy studies
+                        mada
+madad                   Descriptive statistics for meta-analysis of
+                        diagnostic accuracy
+madauni                 Meta-Analyisis of univariate measures of
+                        diagnostic accuracy
+madauni-class           Methods for the class 'madauni'.
+mslSROC                 Plot the Moses-Shapiro-Littenberg SROC curve
+phm                     Diagnostic Meta-Analysis with the proportional
+                        hazards model approach of Holling et.al (2012)
+phm-class               Methods for 'phm' objects.
+predv_d                 Estimation of Distributions of Predictive
+                        Values Based on Prevalence Probability
+                        Distributions and Pooled Sensitivities and
+                        Specificities
+predv_d-class           Methods for the class 'predv_d'.
+predv_r                 Estimation of Distributions of Predictive
+                        Values Based on Prevalence Ranges and Pooled
+                        Sensitivities and Specificities
+predv_r-class           Methods for the class 'predv_r'.
+reitsma                 Fit the bivariate model of Reitsma et al.
+                        (2005) and extensions.
+reitsma-class           Methods for 'reitsma' objects.
+rsSROC                  Plot the Ruecker-Schumacher (2010) SROC curve
+sens                    Sensitivity, Specificity and False Positive
+                        Rate
+talpha                  The t_alpha transformation as a link function
+                        for binary GLMs.

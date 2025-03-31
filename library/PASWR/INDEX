@@ -1,0 +1,100 @@
+Aggression              TV and Behavior
+Apple                   Apple Hardness
+AptSize                 Apartment Size
+Baberuth                George Herman Ruth
+Bac                     Blood Alcohol Content
+Battery                 Lithium Batteries
+Bodyfat                 Body Fat Composition
+CIsim                   Confidence Interval Simulation Program
+Calculus                Calculus Assessment Scores
+Cars2004EU              Cars in the European Union (2004)
+Chips                   Silicon Chips
+CircuitDesigns          Circuit Design Lifetime
+Combinations            Combinations
+CosAma                  Cosmed Versus Amatek
+Cows                    Butterfat of Cows
+Depend                  Number of Dependent Children for 50 Families
+Drosophila              Drosophila Melanogaster
+EDA                     Exploratory Data Analysis
+EPIDURAL                Traditional Sitting Position Versus Hamstring
+                        Stretch Position
+EPIDURALf               Traditional Sitting Position Versus Hamstring
+                        Stretch Position
+EURD                    European Union Research and Development
+Engineer                Engineer Salaries
+FCD                     Fat Cats
+Fertilize               Cross and Auto Fertilization
+Formula1                Pit Stop Times
+GD                      Times Until Failure
+Grades                  GPA and SAT Scores
+Grocery                 Grocery Spending
+HSwrestler              High School Wrestlers
+HardWater               Mortality and Water Hardness
+House                   House Prices
+Hubble                  Hubble Telescope
+InsurQuotes             Insurance Quotes
+Kinder                  Kindergarten Class
+Leddiode                LED Diodes
+LostR                   Lost Revenue Due to Worker Illness
+MilkCarton              Milk Carton Drying Times
+PASWR-package           Probability and Statistics with R
+Phenyl                  Phenylketonuria
+Phone                   Telephone Call Times
+Rat                     Rat Survival Time
+Ratbp                   Rat Blood Pressure
+Refrigerator            Refrigerator Energy Consumption
+Roacheggs               Oriental Cockroaches
+SBIQ                    County IQ
+SDS4                    M1 Motorspeedway Times
+SIGN.test               Sign Test
+SRS                     Simple Random Sample
+Salinity                Surface Water Salinity
+Schizo                  Dopamine Activity
+Score                   Standardized Test Scores
+SimDataST               Simulated Data (Predictors)
+SimDataXT               Simulated Data (Logarithms)
+Soccer                  World Cup Soccer
+StatTemps               Student Temperature
+Stschool                School Satisfaction
+Sundig                  Workstation Comparison
+SurfaceSpain            Surface Area for Spanish Communities
+Swimtimes               Swim Times
+TOE                     Nuclear Energy
+Tennis                  Speed Detector
+TestScores              Statistics Grades
+Tire                    Tire Stopping Distances
+TireWear                Tire Wear
+Top20                   Tennis Income
+URLaddress              Megabytes Downloaded
+WCST                    Wisconsin Card Sorting Test
+Wait                    Waiting Time
+Washer                  Washer Diameter
+Water                   Sodium Content of Water
+WeightGain              Weight Gain in Rats
+WheatSpain              Wheat Surface Area in Spain
+Wool                    Wool Production
+bino.gen                Simulating Binomial Distribution
+biomass                 Beech Trees
+checking.plots          Checking Plots
+fagus                   Retained Carbon in Beech Trees
+food                    Carrot Shear
+glucose                 Blood Glucose Levels
+interval.plot           Interval Plot
+janka                   Australian Eucalypt Hardwoods
+ksLdist                 Simulated Lilliefors' Test of Normality Values
+ksdist                  Simulated Distribution of D[n]
+                        (Kolmogorov-Smirnov)
+normarea                Normal Area
+nsize                   Required Sample Size
+ntester                 Normality Tester
+oneway.plots            Exploratory Graphs for Single Factor Designs
+satfruit                Fruit Trees
+sunflower               Sunflower Defoliation
+titanic3                Titanic Survival Status
+tsum.test               Summarized t-test
+twoway.plots            Exploratory Graphs for Two Factor Designs
+vit2005                 Apartments in Vitoria
+wheatUSA2004            USA Wheat Surface 2004
+wilcoxE.test            Wilcoxon Exact Test
+z.test                  z-Test
+zsum.test               Summarized z-test

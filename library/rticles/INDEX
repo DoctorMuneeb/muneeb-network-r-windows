@@ -1,0 +1,13 @@
+acm_article             R Markdown output formats for (journal)
+                        articles
+ajs_article             Austrian Journal of Statistics (AJS) format.
+copernicus_article      Copernicus journals format.
+ieee_article            IEEE Transactions journal format.
+joss_article            Journal of Open Source Software (JOSS) format.
+journals                List available journals
+jss_article             Journal of Statistical Software (JSS) format.
+oup_article             Oxford University Press.
+rjournal_article        R Journal format.
+rsos_article            Royal Society Open Science journal format.
+rss_article             Royal Statistical Society Journal Format
+string_to_table         Split character string into table

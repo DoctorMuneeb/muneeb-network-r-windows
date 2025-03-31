@@ -1,0 +1,14 @@
+forecTheta-package	forecTheta-package
+dotm	thetaModels
+dstm	thetaModels
+errorMetric	errorMetricFunctions
+expSmoot	expSmoot
+fixOrig	crossValidationFunctions
+forecTheta	forecTheta-package
+groe	crossValidationFunctions
+otm	thetaModels
+otm.arxiv	otm.arXiv
+plot.thetaModel	plot.thetaModel
+rolOrig	crossValidationFunctions
+stheta	thetaModels
+stm	thetaModels

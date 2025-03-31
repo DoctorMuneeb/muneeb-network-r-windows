@@ -1,0 +1,8 @@
+dotm                    Theta Models
+errorMetric             Error Metric Function
+expSmoot                Simple Exponential Smoothing Method
+forecTheta-package      Forecasting Time Series by Theta Models
+groe                    Generalised Rolling Origin Evaluation
+otm.arxiv               Optimised Theta Method
+plot.thetaModel         Plot forecasts points and prediction intervals
+                        for 'thetaModel' objects

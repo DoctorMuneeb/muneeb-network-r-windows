@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="generator" content="litedown 0.6">
+<title>HTML Output from Markdown Examples</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@xiee/utils@1.14.8/css/default.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@xiee/utils@1.14.8/css/prism-xcode.min.css">
+<script src="https://cdn.jsdelivr.net/combine/npm/katex@0.16.21/dist/katex.min.js,npm/katex@0.16.21/dist/contrib/auto-render.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/@xiee/utils@1.14.8/js/render-katex.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js" defer></script>
+</head>
+<body>
+<div class="frontmatter">
+<div class="title"><h1>HTML Output from Markdown Examples</h1></div>
+</div>
+<div class="body">
+<p>This vignette shows how the output looks like in HTML from the other vignette <code>markdown-examples.Rmd</code>, in which the literal HTML code was shown.</p>
+<pre><code class="language-r">library(litedown)
+
+# toc example
+mkd &lt;- c(&quot;# Header 1&quot;, &quot;p1&quot;, &quot;## Header 2&quot;, &quot;p2&quot;)
+
+mark(mkd, options = &quot;+number_sections&quot;)
+</code></pre>
+<h1 id="chp:header-1"><span class="section-number main-number">1</span> Header 1</h1>
+<p>p1</p>
+<h2 id="sec:header-2"><span class="section-number">1.1</span> Header 2</h2>
+<p>p2</p>
+<pre><code class="language-r">mark(mkd, options = &quot;+number_sections+toc&quot;)
+</code></pre>
+<div id="TOC">
+<ul class="numbered">
+<li><a href="#chp:header-1"><span class="section-number main-number">1</span> Header 1</a>
+<ul>
+<li><a href="#sec:header-2"><span class="section-number">1.1</span> Header 2</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h1 id="chp:header-1"><span class="section-number main-number">1</span> Header 1</h1>
+<p>p1</p>
+<h2 id="sec:header-2"><span class="section-number">1.1</span> Header 2</h2>
+<p>p2</p>
+<pre><code class="language-r"># hard_wrap example
+mark(&quot;foo\nbar\n&quot;)
+</code></pre>
+<p>foo
+bar</p>
+<pre><code class="language-r">mark(&quot;foo\nbar\n&quot;, options = &quot;+hardbreaks&quot;)
+</code></pre>
+<p>foo<br />
+bar</p>
+<pre><code class="language-r"># latex math example
+mkd &lt;- c(
+  &quot;`$x$` is inline math $x$!&quot;, &quot;&quot;, &quot;Display style:&quot;, &quot;&quot;, &quot;$$x + y$$&quot;, &quot;&quot;,
+  &quot;\\begin{align}
+a^{2}+b^{2} &amp; = c^{2}\\\\
+\\sin^{2}(x)+\\cos^{2}(x) &amp; = 1
+\\end{align}&quot;
+)
+
+mark(mkd)
+</code></pre>
+<p><code>$x$</code> is inline math \(x\)!</p>
+<p>Display style:</p>
+<p>$$x + y$$</p>
+<p>\begin{align}
+a^{2}+b^{2} &amp; = c^{2}\\
+\sin^{2}(x)+\cos^{2}(x) &amp; = 1
+\end{align}</p>
+<pre><code class="language-r">mark(mkd, options = &quot;-latex_math&quot;)
+</code></pre>
+<p><code>$x$</code> is inline math \(x\)!</p>
+<p>Display style:</p>
+<p>$$x + y$$</p>
+<p>\begin{align}
+a^{2}+b^{2} &amp; = c^{2}\
+\sin^{2}(x)+\cos^{2}(x) &amp; = 1
+\end{align}</p>
+<pre><code class="language-r"># table example
+mark(&quot;
+First Header  | Second Header
+------------- | -------------
+Content Cell  | Content Cell
+Content Cell  | Content Cell
+&quot;)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>First Header</th>
+<th>Second Header</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Content Cell</td>
+<td>Content Cell</td>
+</tr>
+<tr>
+<td>Content Cell</td>
+<td>Content Cell</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-r"># caption
+mark(&quot;
+| a | b |
+|---|--:|
+| A | 9 |
+
+Table: A table _caption_.
+&quot;)
+</code></pre>
+<table>
+<caption>A table <em>caption</em>.</caption>
+<thead>
+<tr>
+<th>a</th>
+<th align="right">b</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td align="right">9</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-r"># no table
+mark(&quot;
+First Header  | Second Header
+------------- | -------------
+Content Cell  | Content Cell
+Content Cell  | Content Cell
+&quot;, options = '-table')
+</code></pre>
+<p>First Header  | Second Header
+———–– | ———––
+Content Cell  | Content Cell
+Content Cell  | Content Cell</p>
+<pre><code class="language-r"># autolink example
+mark(&quot;https://www.r-project.org/&quot;)
+</code></pre>
+<p><a href="https://www.r-project.org/">https://www.r-project.org/</a></p>
+<pre><code class="language-r">mark(&quot;https://www.r-project.org/&quot;, options = &quot;-autolink&quot;)
+</code></pre>
+<p>https://www.r-project.org/</p>
+<pre><code class="language-r"># links and spans
+mark('[a b](#){.red}')
+</code></pre>
+<p><a href="#" class="red">a b</a></p>
+<pre><code class="language-r">mark('[a\nb](){.red}')
+</code></pre>
+<p><span class="red">a
+b</span></p>
+<pre><code class="language-r"># strikethrough example
+mark(&quot;~~awesome~~&quot;)
+</code></pre>
+<p><del>awesome</del></p>
+<pre><code class="language-r">mark(&quot;~~awesome~~&quot;, options = &quot;-strikethrough&quot;)
+</code></pre>
+<p>~~awesome~~</p>
+<pre><code class="language-r"># superscript and subscript examples
+mark(&quot;2^10^&quot;)
+</code></pre>
+<p>2<sup>10</sup></p>
+<pre><code class="language-r">mark(&quot;2^10^&quot;, options = &quot;-superscript&quot;)
+</code></pre>
+<p>2<sup>10</sup></p>
+<pre><code class="language-r">mark(&quot;H~2~O&quot;)
+</code></pre>
+<p>H<sub>2</sub>O</p>
+<pre><code class="language-r">mark(&quot;H~2~O&quot;, options = &quot;-subscript&quot;)
+</code></pre>
+<p>H<sub>2</sub>O</p>
+<pre><code class="language-r"># code blocks
+mark('```r\n1 + 1;\n```')
+</code></pre>
+<pre><code class="language-r">1 + 1;
+</code></pre>
+<pre><code class="language-r">mark('```{.r}\n1 + 1;\n```')
+</code></pre>
+<pre><code class="language-r">1 + 1;
+</code></pre>
+<pre><code class="language-r">mark('```{.r .js}\n1 + 1;\n```')
+</code></pre>
+<pre><code class="language-r js">1 + 1;
+</code></pre>
+<pre><code class="language-r">mark('```{.r .js #foo}\n1 + 1;\n```')
+</code></pre>
+<pre><code class="language-r js" id="foo">1 + 1;
+</code></pre>
+<pre><code class="language-r">mark('```{.r .js #foo style=&quot;background:lime;&quot;}\n1 + 1;\n```')
+</code></pre>
+<pre><code class="language-r js" id="foo" style="background:lime;">1 + 1;
+</code></pre>
+<pre><code class="language-r">mark('````\nA _code chunk_:\n\n```{r, echo=TRUE}\n1 + 1;\n```\n````')
+</code></pre>
+<pre><code>A _code chunk_:
+
+```{r, echo=TRUE}
+1 + 1;
+```
+</code></pre>
+<pre><code class="language-r"># raw blocks
+mark('```{=html}\n&lt;p&gt;raw HTML&lt;/p&gt;\n```')
+</code></pre>
+<p>raw HTML</p>
+<pre><code class="language-r">mark('```{=latex}\n\\textbf{raw LaTeX}\n```')
+</code></pre>
+<pre><code class="language-r"># filter out HTML tags
+mkd = '&lt;style&gt;a {}&lt;/style&gt;&lt;script type=&quot;text/javascript&quot;&gt;console.log(&quot;No!&quot;);&lt;/script&gt;\n[Hello](#)'
+mark(mkd)
+</code></pre>
+<style>a {}</style><script type="text/javascript">console.log("No!");</script>
+<p><a href="#">Hello</a></p>
+<pre><code class="language-r"># tagfiler doesn't work: https://github.com/r-lib/commonmark/issues/15
+# mark(mkd, options = &quot;tagfilter&quot;)
+</code></pre>
+<pre><code class="language-r"># smartypants example
+cat(mark(&quot;1/2 (c)&quot;))
+</code></pre>
+<p>1/2 (c)</p>
+<pre><code class="language-r">cat(mark(&quot;1/2 (c)&quot;, options = &quot;+smartypants&quot;))
+</code></pre>
+<p>½ ©</p>
+<pre><code class="language-r">mkd &lt;- paste(names(litedown:::pants), collapse = ' ')
+cat(mark(mkd, options = &quot;+smartypants&quot;))
+</code></pre>
+<p>½ ⅓ ⅔ ¼ ¾ ⅕ ⅖ ⅗ ⅘ ⅙ ⅚ ⅛ ⅜ ⅝ ⅞ ⅐ ⅑ ⅒ © ® ™</p>
+</div>
+</body>
+</html>

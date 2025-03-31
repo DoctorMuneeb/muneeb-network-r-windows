@@ -1,0 +1,17 @@
+Greg-package            Regression Helper Functions
+addNonlinearity         Add a nonlinear function to the model
+caDescribeOpts          A function for gathering all the description
+                        options
+confint.ols             A 'confint' function for the 'ols'
+confint_robust          The confint function adapted for vcovHC
+forestplotCombineRegrObj
+                        Compares different scores in different
+                        regression objects.
+forestplotRegrObj       Forest plot for multiple models
+isFitCoxPH              Functions for checking regression type
+plotHR                  Plot a spline in a Cox regression model
+robcov_alt              Robust covariance matrix based upon the
+                        'sandwich'-package
+tidy.rms                Tidy a(n) rms model object
+timeSplitter            A function for splitting a time according to
+                        time periods

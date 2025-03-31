@@ -1,0 +1,30 @@
+atrialFibrillation      Prevention of stroke in atrial fibrillation
+                        patients
+blobbogram              Plot a blobbogram (AKA forest plot)
+blocker                 Beta blockers to prevent mortality after
+                        myocardial infarction
+certolizumab            Certolizumab Pegol (CZP) for Rheumatoid
+                        Arthritis
+depression              Treatment response in major depression
+dietfat                 Effects of low-fat diets on mortality
+gemtc-package           GeMTC: Network meta-analysis in R
+hfPrevention            Statins versus placebo in primary and secondary
+                        prevention of heart failure
+ll.call                 Call a likelihood/link-specific function
+mtc.anohe               Analysis of heterogeneity (ANOHE)
+mtc.data.studyrow       Convert one-study-per-row datasets
+mtc.deviance            Inspect residual deviance
+mtc.hy.prior            Set priors for the heterogeneity parameter
+mtc.model               Generate network meta-analysis models
+mtc.network             Create an mtc.network
+mtc.nodesplit           Node-splitting analysis of inconsistency
+mtc.run                 Running an 'mtc.model' using an MCMC sampler
+parkinson               Mean off-time reduction in Parkinson's disease
+plotCovariateEffect     Plot treatment effects versus covariate values
+rank.probability        Calculating rank-probabilities
+relative.effect         Calculating relative effects
+relative.effect.table   Table of relative effects
+smoking                 Psychological treatments to aid smoking
+                        cessation
+thrombolytic            Thrombolytic treatment after acute myocardial
+                        infarction

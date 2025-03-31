@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="generator" content="litedown 0.6">
+<title>Raw Output from Markdown Examples</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@xiee/utils@1.14.8/css/default.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@xiee/utils@1.14.8/css/prism-xcode.min.css">
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js" defer></script>
+</head>
+<body>
+<div class="frontmatter">
+<div class="title"><h1>Raw Output from Markdown Examples</h1></div>
+</div>
+<div class="body">
+<p>This vignette shows some examples for different Markdown rendering options.</p>
+<pre><code class="language-r">library(litedown)
+
+# toc example
+mkd &lt;- c(&quot;# Header 1&quot;, &quot;p1&quot;, &quot;## Header 2&quot;, &quot;p2&quot;)
+
+mark(mkd, options = &quot;+number_sections&quot;)
+</code></pre>
+<pre><code class="language-plain" html>&lt;h1 id=&quot;chp:header-1&quot;&gt;&lt;span class=&quot;section-number main-number&quot;&gt;1&lt;/span&gt; Header 1&lt;/h1&gt;
+&lt;p&gt;p1&lt;/p&gt;
+&lt;h2 id=&quot;sec:header-2&quot;&gt;&lt;span class=&quot;section-number&quot;&gt;1.1&lt;/span&gt; Header 2&lt;/h2&gt;
+&lt;p&gt;p2&lt;/p&gt;
+</code></pre>
+<pre><code class="language-r">mark(mkd, options = &quot;+number_sections+toc&quot;)
+</code></pre>
+<pre><code class="language-plain" html>&lt;div id=&quot;TOC&quot;&gt;
+&lt;ul class=&quot;numbered&quot;&gt;
+&lt;li&gt;&lt;a href=&quot;#chp:header-1&quot;&gt;&lt;span class=&quot;section-number main-number&quot;&gt;1&lt;/span&gt; Header 1&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#sec:header-2&quot;&gt;&lt;span class=&quot;section-number&quot;&gt;1.1&lt;/span&gt; Header 2&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;h1 id=&quot;chp:header-1&quot;&gt;&lt;span class=&quot;section-number main-number&quot;&gt;1&lt;/span&gt; Header 1&lt;/h1&gt;
+&lt;p&gt;p1&lt;/p&gt;
+&lt;h2 id=&quot;sec:header-2&quot;&gt;&lt;span class=&quot;section-number&quot;&gt;1.1&lt;/span&gt; Header 2&lt;/h2&gt;
+&lt;p&gt;p2&lt;/p&gt;
+</code></pre>
+<pre><code class="language-r"># hard_wrap example
+mark(&quot;foo\nbar\n&quot;)
+</code></pre>
+<pre><code class="language-plain" html>&lt;p&gt;foo
+bar&lt;/p&gt;
+</code></pre>
+<pre><code class="language-r">mark(&quot;foo\nbar\n&quot;, options = &quot;+hardbreaks&quot;)
+</code></pre>
+<pre><code class="language-plain" html>&lt;p&gt;foo&lt;br /&gt;
+bar&lt;/p&gt;
+</code></pre>
+<pre><code class="language-r"># latex math example
+mkd &lt;- c(
+  &quot;`$x$` is inline math $x$!&quot;, &quot;&quot;, &quot;Display style:&quot;, &quot;&quot;, &quot;$$x + y$$&quot;, &quot;&quot;,
+  &quot;\\begin{align}
+a^{2}+b^{2} &amp; = c^{2}\\\\
+\\sin^{2}(x)+\\cos^{2}(x) &amp; = 1
+\\end{align}&quot;
+)
+
+mark(mkd)
+</code></pre>
+<pre><code class="language-plain" html>&lt;p&gt;&lt;code&gt;$x$&lt;/code&gt; is inline math \(x\)!&lt;/p&gt;
+&lt;p&gt;Display style:&lt;/p&gt;
+&lt;p&gt;$$x + y$$&lt;/p&gt;
+&lt;p&gt;\begin{align}
+a^{2}+b^{2} &amp;amp; = c^{2}\\
+\sin^{2}(x)+\cos^{2}(x) &amp;amp; = 1
+\end{align}&lt;/p&gt;
+</code></pre>
+<pre><code class="language-r">mark(mkd, options = &quot;-latex_math&quot;)
+</code></pre>
+<pre><code class="language-plain" html>&lt;p&gt;&lt;code&gt;$x$&lt;/code&gt; is inline math $x$!&lt;/p&gt;
+&lt;p&gt;Display style:&lt;/p&gt;
+&lt;p&gt;$$x + y$$&lt;/p&gt;
+&lt;p&gt;\begin{align}
+a^{2}+b^{2} &amp;amp; = c^{2}\
+\sin^{2}(x)+\cos^{2}(x) &amp;amp; = 1
+\end{align}&lt;/p&gt;
+</code></pre>
+<pre><code class="language-r"># table example
+mark(&quot;
+First Header  | Second Header
+------------- | -------------
+Content Cell  | Content Cell
+Content Cell  | Content Cell
+&quot;)
+</code></pre>
+<pre><code class="language-plain" html>&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;First Header&lt;/th&gt;
+&lt;th&gt;Second Header&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Content Cell&lt;/td&gt;
+&lt;td&gt;Content Cell&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Content Cell&lt;/td&gt;
+&lt;td&gt;Content Cell&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</code></pre>
+<pre><code class="language-r"># caption
+mark(&quot;
+| a | b |
+|---|--:|
+| A | 9 |
+
+Table: A table _caption_.
+&quot;)
+</code></pre>
+<pre><code class="language-plain" html>&lt;table&gt;
+&lt;caption&gt;A table &lt;em&gt;caption&lt;/em&gt;.&lt;/caption&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;a&lt;/th&gt;
+&lt;th align=&quot;right&quot;&gt;b&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;A&lt;/td&gt;
+&lt;td align=&quot;right&quot;&gt;9&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</code></pre>
+<pre><code class="language-r"># no table
+mark(&quot;
+First Header  | Second Header
+------------- | -------------
+Content Cell  | Content Cell
+Content Cell  | Content Cell
+&quot;, options = '-table')
+</code></pre>
+<pre><code class="language-plain" html>&lt;p&gt;First Header  | Second Header
+———–– | ———––
+Content Cell  | Content Cell
+Content Cell  | Content Cell&lt;/p&gt;
+</code></pre>
+<pre><code class="language-r"># autolink example
+mark(&quot;https://www.r-project.org/&quot;)
+</code></pre>
+<pre><code class="language-plain" html>&lt;p&gt;&lt;a href=&quot;https://www.r-project.org/&quot;&gt;https://www.r-project.org/&lt;/a&gt;&lt;/p&gt;
+</code></pre>
+<pre><code class="language-r">mark(&quot;https://www.r-project.org/&quot;, options = &quot;-autolink&quot;)
+</code></pre>
+<pre><code class="language-plain" html>&lt;p&gt;https://www.r-project.org/&lt;/p&gt;
+</code></pre>
+<pre><code class="language-r"># links and spans
+mark('[a b](#){.red}')
+</code></pre>
+<pre><code class="language-plain" html>&lt;p&gt;&lt;a href=&quot;#&quot; class=&quot;red&quot;&gt;a b&lt;/a&gt;&lt;/p&gt;
+</code></pre>
+<pre><code class="language-r">mark('[a\nb](){.red}')
+</code></pre>
+<pre><code class="language-plain" html>&lt;p&gt;&lt;span class=&quot;red&quot;&gt;a
+b&lt;/span&gt;&lt;/p&gt;
+</code></pre>
+<pre><code class="language-r"># strikethrough example
+mark(&quot;~~awesome~~&quot;)
+</code></pre>
+<pre><code class="language-plain" html>&lt;p&gt;&lt;del&gt;awesome&lt;/del&gt;&lt;/p&gt;
+</code></pre>
+<pre><code class="language-r">mark(&quot;~~awesome~~&quot;, options = &quot;-strikethrough&quot;)
+</code></pre>
+<pre><code class="language-plain" html>&lt;p&gt;~~awesome~~&lt;/p&gt;
+</code></pre>
+<pre><code class="language-r"># superscript and subscript examples
+mark(&quot;2^10^&quot;)
+</code></pre>
+<pre><code class="language-plain" html>&lt;p&gt;2&lt;sup&gt;10&lt;/sup&gt;&lt;/p&gt;
+</code></pre>
+<pre><code class="language-r">mark(&quot;2^10^&quot;, options = &quot;-superscript&quot;)
+</code></pre>
+<pre><code class="language-plain" html>&lt;p&gt;2^10^&lt;/p&gt;
+</code></pre>
+<pre><code class="language-r">mark(&quot;H~2~O&quot;)
+</code></pre>
+<pre><code class="language-plain" html>&lt;p&gt;H&lt;sub&gt;2&lt;/sub&gt;O&lt;/p&gt;
+</code></pre>
+<pre><code class="language-r">mark(&quot;H~2~O&quot;, options = &quot;-subscript&quot;)
+</code></pre>
+<pre><code class="language-plain" html>&lt;p&gt;H~2~O&lt;/p&gt;
+</code></pre>
+<pre><code class="language-r"># code blocks
+mark('```r\n1 + 1;\n```')
+</code></pre>
+<pre><code class="language-plain" html>&lt;pre&gt;&lt;code class=&quot;language-r&quot;&gt;1 + 1;
+&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
+<pre><code class="language-r">mark('```{.r}\n1 + 1;\n```')
+</code></pre>
+<pre><code class="language-plain" html>&lt;pre&gt;&lt;code class=&quot;language-r&quot;&gt;1 + 1;
+&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
+<pre><code class="language-r">mark('```{.r .js}\n1 + 1;\n```')
+</code></pre>
+<pre><code class="language-plain" html>&lt;pre&gt;&lt;code class=&quot;language-r js&quot;&gt;1 + 1;
+&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
+<pre><code class="language-r">mark('```{.r .js #foo}\n1 + 1;\n```')
+</code></pre>
+<pre><code class="language-plain" html>&lt;pre&gt;&lt;code class=&quot;language-r js&quot; id=&quot;foo&quot;&gt;1 + 1;
+&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
+<pre><code class="language-r">mark('```{.r .js #foo style=&quot;background:lime;&quot;}\n1 + 1;\n```')
+</code></pre>
+<pre><code class="language-plain" html>&lt;pre&gt;&lt;code class=&quot;language-r js&quot; id=&quot;foo&quot; style=&quot;background:lime;&quot;&gt;1 + 1;
+&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
+<pre><code class="language-r">mark('````\nA _code chunk_:\n\n```{r, echo=TRUE}\n1 + 1;\n```\n````')
+</code></pre>
+<pre><code class="language-plain" html>&lt;pre&gt;&lt;code&gt;A _code chunk_:
+
+```{r, echo=TRUE}
+1 + 1;
+```
+&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
+<pre><code class="language-r"># raw blocks
+mark('```{=html}\n&lt;p&gt;raw HTML&lt;/p&gt;\n```')
+</code></pre>
+<pre><code class="language-plain" html>&lt;p&gt;raw HTML&lt;/p&gt;
+</code></pre>
+<pre><code class="language-r">mark('```{=latex}\n\\textbf{raw LaTeX}\n```')
+</code></pre>
+<pre><code class="language-plain" html>
+</code></pre>
+<pre><code class="language-r"># filter out HTML tags
+mkd = '&lt;style&gt;a {}&lt;/style&gt;&lt;script type=&quot;text/javascript&quot;&gt;console.log(&quot;No!&quot;);&lt;/script&gt;\n[Hello](#)'
+mark(mkd)
+</code></pre>
+<pre><code class="language-plain" html>&lt;style&gt;a {}&lt;/style&gt;&lt;script type=&quot;text/javascript&quot;&gt;console.log(&quot;No!&quot;);&lt;/script&gt;
+&lt;p&gt;&lt;a href=&quot;#&quot;&gt;Hello&lt;/a&gt;&lt;/p&gt;
+</code></pre>
+<pre><code class="language-r"># tagfiler doesn't work: https://github.com/r-lib/commonmark/issues/15
+# mark(mkd, options = &quot;tagfilter&quot;)
+</code></pre>
+</div>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head><title>R: Descriptive Statistics, Transition Plots, and More</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+<h1> Descriptive Statistics, Transition Plots, and More
+<img class="toplogo" src="../../../doc/html/Rlogo.svg" alt="[R logo]" />
+</h1>
+<hr/>
+<div style="text-align: center;">
+<a href="../../../doc/html/packages.html"><img class="arrow" src="../../../doc/html/left.jpg" alt="[Up]" /></a>
+<a href="../../../doc/html/index.html"><img class="arrow" src="../../../doc/html/up.jpg" alt="[Top]" /></a>
+</div><h2>Documentation for package &lsquo;Gmisc&rsquo; version 3.0.3</h2>
+
+<ul><li><a href="../DESCRIPTION">DESCRIPTION file</a>.</li>
+<li><a href="../doc/index.html">User guides, package vignettes and other documentation.</a></li>
+<li><a href="../NEWS">Package NEWS</a>.</li>
+</ul>
+
+<h2>Help Pages</h2>
+
+
+<table style="width: 100%;">
+<tr><td style="width: 25%;"><a href="Gmisc-package.html">Gmisc-package</a></td>
+<td>Collection of functions for plotting relations, generating tables, and more.</td></tr>
+<tr><td style="width: 25%;"><a href="align.html">align</a></td>
+<td>Align boxes</td></tr>
+<tr><td style="width: 25%;"><a href="align.html">alignHorizontal</a></td>
+<td>Align boxes</td></tr>
+<tr><td style="width: 25%;"><a href="align.html">alignVertical</a></td>
+<td>Align boxes</td></tr>
+<tr><td style="width: 25%;"><a href="bezierArrowGradient.html">bezierArrowGradient</a></td>
+<td>A bezier arrow with gradient</td></tr>
+<tr><td style="width: 25%;"><a href="bezierArrowSmpl.html">bezierArrowSmpl</a></td>
+<td>A simple bezier arrow</td></tr>
+<tr><td style="width: 25%;"><a href="box.html">boxGrob</a></td>
+<td>Create a box with text</td></tr>
+<tr><td style="width: 25%;"><a href="boxPropGrob.html">boxPropGrob</a></td>
+<td>Create a box with a color split</td></tr>
+<tr><td style="width: 25%;"><a href="calculateLinesAndArrow.html">calculateLinesAndArrow</a></td>
+<td>Gets offsetted lines</td></tr>
+<tr><td style="width: 25%;"><a href="connect.html">connectGrob</a></td>
+<td>Connect boxes with an arrow</td></tr>
+<tr><td style="width: 25%;"><a href="convertShowMissing.html">convertShowMissing</a></td>
+<td>A function for converting a show_missing variable.</td></tr>
+<tr><td style="width: 25%;"><a href="coords.html">coords</a></td>
+<td>Get the box coordinates</td></tr>
+<tr><td style="width: 25%;"><a href="copyAllNewAttributes.html">copyAllNewAttributes</a></td>
+<td>A simple thing to keep the attributes</td></tr>
+<tr><td style="width: 25%;"><a href="descGetMissing.html">descGetMissing</a></td>
+<td>Get statistics for missing data</td></tr>
+<tr><td style="width: 25%;"><a href="describeFactors.html">describeFactors</a></td>
+<td>Describes factor variables</td></tr>
+<tr><td style="width: 25%;"><a href="describeMean.html">describeMean</a></td>
+<td>Describe the mean</td></tr>
+<tr><td style="width: 25%;"><a href="describeMedian.html">describeMedian</a></td>
+<td>A function that returns a description median that contains the interquartile range or the full range</td></tr>
+<tr><td style="width: 25%;"><a href="describeProp.html">describeProp</a></td>
+<td>A function that returns a description proportion that contains the number and the percentage</td></tr>
+<tr><td style="width: 25%;"><a href="distance.html">distance</a></td>
+<td>Get the distance between grid objects</td></tr>
+<tr><td style="width: 25%;"><a href="docx_document.html">docx_document</a></td>
+<td>Formatter wrapper for 'html_document', facilitates easier porting to docx</td></tr>
+<tr><td style="width: 25%;"><a href="fastDoCall.html">fastDoCall</a></td>
+<td>An alternative to the internal 'do.call'</td></tr>
+<tr><td style="width: 25%;"><a href="figCapNo.html">figCapNo</a></td>
+<td>Adds a figure caption number</td></tr>
+<tr><td style="width: 25%;"><a href="figCapNoLast.html">figCapNoLast</a></td>
+<td>Gets the last figure caption number</td></tr>
+<tr><td style="width: 25%;"><a href="figCapNoNext.html">figCapNoNext</a></td>
+<td>Gets the next figure caption number</td></tr>
+<tr><td style="width: 25%;"><a href="getBezierAdj4Arrw.html">getBezierAdj4Arrw</a></td>
+<td>Gets the bezier points adjusted for an arrow</td></tr>
+<tr><td style="width: 25%;"><a href="getDescriptionStatsBy.html">getDescriptionStatsBy</a></td>
+<td>Creating of description statistics</td></tr>
+<tr><td style="width: 25%;"><a href="getPval.html">getPvalAnova</a></td>
+<td>P-value extractors for 'getDescriptionStatsBy'</td></tr>
+<tr><td style="width: 25%;"><a href="getPval.html">getPvalChiSq</a></td>
+<td>P-value extractors for 'getDescriptionStatsBy'</td></tr>
+<tr><td style="width: 25%;"><a href="getPval.html">getPvalFisher</a></td>
+<td>P-value extractors for 'getDescriptionStatsBy'</td></tr>
+<tr><td style="width: 25%;"><a href="getPval.html">getPvalKruskal</a></td>
+<td>P-value extractors for 'getDescriptionStatsBy'</td></tr>
+<tr><td style="width: 25%;"><a href="getPval.html">getPvalWilcox</a></td>
+<td>P-value extractors for 'getDescriptionStatsBy'</td></tr>
+<tr><td style="width: 25%;"><a href="getSvdMostInfluential.html">getSvdMostInfluential</a></td>
+<td>Gets the maximum contributor variables from svd()</td></tr>
+<tr><td style="width: 25%;"><a href="gnrlBezierPoints.html">gnrlBezierPoints</a></td>
+<td>Generates a generalized Bézier line</td></tr>
+<tr><td style="width: 25%;"><a href="has.html">has</a></td>
+<td>An R alternative to the lodash 'has' in JavaScript</td></tr>
+<tr><td style="width: 25%;"><a href="box.html">heightDetails.box</a></td>
+<td>Create a box with text</td></tr>
+<tr><td style="width: 25%;"><a href="getDescriptionStatsBy.html">htmlTable.Gmisc_getDescriptionStatsBy</a></td>
+<td>Creating of description statistics</td></tr>
+<tr><td style="width: 25%;"><a href="insertRowAndKeepAttr.html">insertRowAndKeepAttr</a></td>
+<td>Insert a row into a matrix</td></tr>
+<tr><td style="width: 25%;"><a href="getDescriptionStatsBy.html">knit_print.Gmisc_getDescriptionStatsBy</a></td>
+<td>Creating of description statistics</td></tr>
+<tr><td style="width: 25%;"><a href="getDescriptionStatsBy.html">length.Gmisc_getDescriptionStatsBy</a></td>
+<td>Creating of description statistics</td></tr>
+<tr><td style="width: 25%;"><a href="mergeDesc.html">mergeDesc</a></td>
+<td>Prepares a matrix for 'htmlTable' from a list</td></tr>
+<tr><td style="width: 25%;"><a href="mergeLists.html">mergeLists</a></td>
+<td>Merging of multiple lists</td></tr>
+<tr><td style="width: 25%;"><a href="moveBox.html">moveBox</a></td>
+<td>Move a boxGrob</td></tr>
+<tr><td style="width: 25%;"><a href="pathJoin.html">pathJoin</a></td>
+<td>A path join function</td></tr>
+<tr><td style="width: 25%;"><a href="box.html">plot.box</a></td>
+<td>Create a box with text</td></tr>
+<tr><td style="width: 25%;"><a href="connect.html">plot.connect_boxes</a></td>
+<td>Connect boxes with an arrow</td></tr>
+<tr><td style="width: 25%;"><a href="prAddDescStats.html">prAddDescStats</a></td>
+<td>Add a p-value column to the results</td></tr>
+<tr><td style="width: 25%;"><a href="prAddDescUnitColumn.html">prAddDescUnitColumn</a></td>
+<td>Add a units column to the results</td></tr>
+<tr><td style="width: 25%;"><a href="prAddEmptyVals.html">prAddEmptyVals</a></td>
+<td>Convert the by-list into a matrix compatible format</td></tr>
+<tr><td style="width: 25%;"><a href="prAddTotalDescColumn.html">prAddTotalDescColumn</a></td>
+<td>Add a total column to the results</td></tr>
+<tr><td style="width: 25%;"><a href="prBuildSubLabel.html">prBuildSubLabel</a></td>
+<td>Add a sub-label to 'boxPropGrob'</td></tr>
+<tr><td style="width: 25%;"><a href="prConvert2Coords.html">prConvert2Coords</a></td>
+<td>Converts an object to coordinates</td></tr>
+<tr><td style="width: 25%;"><a href="prCreateBoxCoordinates.html">prCreateBoxCoordinates</a></td>
+<td>Creates coordinates for box</td></tr>
+<tr><td style="width: 25%;"><a href="prFactorDescs.html">prFactorDescs</a></td>
+<td>Helper to [getDescriptionStatsBy()]</td></tr>
+<tr><td style="width: 25%;"><a href="prFixDescRownames.html">prFixDescRownames</a></td>
+<td>Fix rownames for descriptive results</td></tr>
+<tr><td style="width: 25%;"><a href="prGetDescHeader.html">prGetDescHeader</a></td>
+<td>Retrieve basic description stats by header</td></tr>
+<tr><td style="width: 25%;"><a href="box.html">print.box</a></td>
+<td>Create a box with text</td></tr>
+<tr><td style="width: 25%;"><a href="connect.html">print.connect_boxes</a></td>
+<td>Connect boxes with an arrow</td></tr>
+<tr><td style="width: 25%;"><a href="getDescriptionStatsBy.html">print.Gmisc_getDescriptionStatsBy</a></td>
+<td>Creating of description statistics</td></tr>
+<tr><td style="width: 25%;"><a href="print.Gmisc_list_of_boxes.html">print.Gmisc_list_of_boxes</a></td>
+<td>Output boxes</td></tr>
+<tr><td style="width: 25%;"><a href="distance.html">print.Gmisc_unit</a></td>
+<td>Get the distance between grid objects</td></tr>
+<tr><td style="width: 25%;"><a href="prNumericDescs.html">prNumericDescs</a></td>
+<td>Helper to [getDescriptionStatsBy()]</td></tr>
+<tr><td style="width: 25%;"><a href="prPasteVec.html">prPasteVec</a></td>
+<td>Collapses a vector for throwing errors</td></tr>
+<tr><td style="width: 25%;"><a href="prPropDescs.html">prPropDescs</a></td>
+<td>Helper to [getDescriptionStatsBy()]</td></tr>
+<tr><td style="width: 25%;"><a href="retrieve.html">retrieve</a></td>
+<td>An R alternative to the lodash 'get' in JavaScript</td></tr>
+<tr><td style="width: 25%;"><a href="set_column_labels.html">set_column_labels</a></td>
+<td>Add [Hmisc::label()] to multiple columns</td></tr>
+<tr><td style="width: 25%;"><a href="set_column_units.html">set_column_units</a></td>
+<td>Add [Hmisc::unit()] to multiple columns</td></tr>
+<tr><td style="width: 25%;"><a href="spread.html">spread</a></td>
+<td>Spread boxes</td></tr>
+<tr><td style="width: 25%;"><a href="spread.html">spreadHorizontal</a></td>
+<td>Spread boxes</td></tr>
+<tr><td style="width: 25%;"><a href="spread.html">spreadVertical</a></td>
+<td>Spread boxes</td></tr>
+<tr><td style="width: 25%;"><a href="time2spanTxt.html">time2spanTxt</a></td>
+<td>A dense time-span text</td></tr>
+<tr><td style="width: 25%;"><a href="Transition-class.html">Transition</a></td>
+<td>A reference class for generating transition plots</td></tr>
+<tr><td style="width: 25%;"><a href="Transition-class.html">Transition-class</a></td>
+<td>A reference class for generating transition plots</td></tr>
+<tr><td style="width: 25%;"><a href="transitionPlot.html">transitionPlot</a></td>
+<td>A transition plot</td></tr>
+<tr><td style="width: 25%;"><a href="box.html">widthDetails.box</a></td>
+<td>Create a box with text</td></tr>
+<tr><td style="width: 25%;"><a href="yamlDump.html">yamlDump</a></td>
+<td>Outputs an object</td></tr>
+</table>
+</div></body></html>

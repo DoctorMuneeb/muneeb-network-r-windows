@@ -1,0 +1,102 @@
+export("phm")
+export("reitsma")
+export("ROCellipse")
+export("crosshair")
+export("sroc")
+export("AUC")
+export("mcsroc")
+export("madad")
+export("print.madad")
+export("CIrho")
+export("madauni")
+export("print.madauni")
+export("summary.madauni")
+export("print.summary.madauni")
+export("vcov.madauni")
+export("cochran.Q")
+export("sens")
+export("fpr")
+export("spec")
+export("forest")
+export("forestmada")
+export("talpha")
+export("SummaryPts")
+export("mslSROC")
+export("rsSROC")
+export("predv_d")
+export("predv_r")
+export("print.predv_r")
+export("summary.predv_r")
+export("print.predv_d")
+export("summary.predv_d")
+
+
+
+S3method(print, SummaryPts)
+S3method(summary, SummaryPts)
+S3method(SummaryPts, default)
+S3method(SummaryPts, reitsma)
+
+S3method(print, reitsma)
+S3method(AUC, reitsma)
+S3method(AUC, default)
+S3method(summary, reitsma)
+S3method(print, summary.reitsma)
+S3method(vcov, reitsma)
+S3method(confint, reitsma)
+S3method(logLik, reitsma)
+S3method(sroc, reitsma)
+S3method(mcsroc, reitsma)
+S3method(plot, reitsma)
+S3method(crosshair, reitsma)
+S3method(crosshair, default)
+S3method(ROCellipse, reitsma)
+S3method(ROCellipse, default)
+S3method(reitsma, default)
+S3method(anova, reitsma)
+S3method(print, anova.reitsma)
+
+S3method(forest, madad)
+S3method(forest, madauni)
+S3method(print, madad)
+S3method(print, madauni)
+S3method(summary, madauni)
+S3method(print, summary.madauni)
+S3method(vcov, madauni)
+
+
+S3method(print, phm)
+S3method(summary, phm)
+S3method(print, summary.phm)
+S3method(vcov, phm)
+S3method(logLik, phm)
+S3method(sroc, phm)
+S3method(plot, phm)
+S3method(phm, default)
+S3method(AUC, phm)
+
+
+S3method(print, predv_r)
+S3method(summary, predv_r)
+S3method(print, predv_d)
+S3method(summary, predv_d)
+
+
+import(ellipse)
+import(mvmeta)
+import(mvtnorm)
+importFrom(metafor,rma)
+
+importFrom("graphics", "abline", "arrows", "axis", "lines", "plot",
+             "points", "polygon", "text", "hist", "legend", "par", "strheight",
+                "strwidth")
+importFrom("stats", "AIC", "BIC", "coef", "confint", "cor", "dbinom",
+             "lm", "logLik", "lowess", "make.link", "median",
+             "model.matrix", "pbinom", "pchisq", "plogis", "pnorm",
+             "printCoefmat", "prop.test", "qbeta", "qchisq", "qnorm",
+             "rbinom", "rpois", "runif", "splinefun", "symnum",
+             "uniroot", "vcov", "dbeta", "density", "pbeta", "quantile", "rbeta",
+                "sd", "aggregate")
+importFrom("grDevices", "dev.off", "recordPlot")
+    
+importFrom("methods", "is")

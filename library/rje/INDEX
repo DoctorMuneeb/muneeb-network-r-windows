@@ -1,0 +1,37 @@
+Dirichlet               The Dirichlet Distribution
+and0                    Fast pairwise logical operators
+armijo                  Generic functions to aid finding local minima
+                        given search direction
+combinations            Combinations of Integers
+conditionMatrix         Find conditional probability table
+cubeHelix               Cube Helix colour palette
+designMatrix            Orthogonal Design Matrix
+expit                   Expit and Logit.
+fastHadamard            Compute fast Hadamard-transform of vector
+fastMobius              Fast Moebius and inverse Moebius transforms
+fsapply                 Fast and loose application of function over
+                        list.
+greaterThan             Comparing numerical values
+inclusionMax            Get inclusion maximal subsets from a list
+indexBox                Get indices of adjacent entries in array
+int2set                 Alternate between sets and integers
+                        representing sets of integers via bits
+interventionMatrix      Calculate interventional distributions.
+is.subset               Check subset inclusion
+is.wholenumber          Determine whether number is integral or not.
+kronPower               Kronecker power of a matrix or vector
+last                    Last element of a vector or list
+marginTable             Compute margin of a table faster
+patternRepeat           Complex repetitions
+powerSet                Power Set
+printPercentage         Print Percentage of Activity Completed to
+                        stdout
+quickSort               Quicksort for Partial Orderings
+rowMins                 Row-wise minima and maxima
+rprobdist               Generate a joint (or conditional) probability
+                        distribution
+schur                   Obtain generalized Schur complement
+setmatch                Set Operations
+subsetMatrix            Matrix of Subset Indicators
+subsetOrder             Compare sets for inclusion.
+subtable                Subset an array

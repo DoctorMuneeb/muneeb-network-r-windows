@@ -1,0 +1,58 @@
+alcohol                 Alcohol Intake and Colorectal Cancer
+bcg                     Efficacy of BCG Vaccine in the Prevention of
+                        Tuberculosis
+bdiagMat                Block-Diagonal Expansion of a List of Matrices
+berkey98                Five Published Trials on Periodontal Disease
+blup                    Best Linear Unbiased Predictions
+blup.mixmeta            Best Linear Unbiased Predictions from mixmeta
+                        Models
+coef.mixmeta            Extract Coefficients and (Co)Variance Matrix
+                        from mixmeta Objects
+dbs                     Deep-Brain Stimulation for Patients with
+                        Parkinson's Disease
+fibrinogen              Fibrinogen Studies Collaboration
+gliomas                 Randomized Trials on Therapies for Malignant
+                        Gliomas
+hsls                    High School Longitudinal Study
+hyp                     Ten Studies Assessing an Hypertension Treatment
+inputcov                Input (Co)Variance Matrices
+inputna                 Input Missing Values
+logLik.mixmeta          Extract Log-Likelihood from mixmeta Objects
+mixmeta                 Fitting Standard and Extended Meta-Analysis and
+                        Meta-Regression Models
+mixmeta-package         An Extended Mixed-Effects Framework for
+                        Meta-Analysis
+mixmeta.control         Ancillary Parameters for Controlling the Fit in
+                        mixmeta Models
+mixmeta.fixed           Fixed-Effects Estimator for mixmeta Models
+mixmeta.ml              ML and REML Estimators for mixmeta Models
+mixmeta.mm              Method of Moments Estimator for mixmeta Models
+mixmeta.vc              Variance Components Estimator for mixmeta
+                        Models
+mixmetaCovStruct        (Co)variance Structures for mixmeta Models
+mixmetaFormula          Formulae in mixmeta Models
+mixmetaObject           mixmeta Objects
+mixmetaSim              Simulating Responses for mixmeta Models
+ml.igls                 IGLS and RIGLS Iterative Algorithms for mixmeta
+                        Models
+ml.loglik.fn            Likelihood Functions for mixmeta Models
+ml.newton               Quasi-Newton Iterative Algorithms for mixmeta
+                        Models
+model.frame.mixmeta     Extract Model Frame and Design Matrix from
+                        mixmeta Objects
+na.omit.data.frame.mixmeta
+                        Handling Missing Values in mixmeta Models
+p53                     Mutant p53 Gene and Squamous Cell Carcinoma
+predict.mixmeta         Predicted Values from mixmeta Models
+qtest                   Cochran Q Test of Heterogeneity
+qtest.mixmeta           Cochran Q Test of Heterogeneity for mixmeta
+                        Models
+school                  Studies on Modified School Calendar and Student
+                        Achievement
+smoking                 Meta-Analysis of Interventions to Promote
+                        Smoking Cessation
+summary.mixmeta         Summarizing mixmeta Models
+terms.mixmeta           Extract Model Terms from mixmeta Objects
+thrombolytic            Randomized Trials of Thrombolytic Therapy
+vechMat                 Vectorization and Expansion of Symmetric
+                        Matrices
